@@ -1,1 +1,0 @@
-# ThoughtWorks Belo Horizonte Map

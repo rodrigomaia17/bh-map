@@ -39,26 +39,22 @@ main section {
   padding: 10px;
 }
 
-main section[role="lists"] {
+main section:first-child {
+  width: 70%;
+}
+
+main section[role="navigation"] {
   display: flex;
   flex-grow: 1;
+  width: 30%;
 }
 
 svg > * {
   fill: #ccc;
   cursor: pointer;
 }
-
-svg > *.highlight {
-  fill: rgba(200, 200, 200, 0.6);
-}
-
 svg > .rooms {
   fill: rgb(181, 185, 53);
-}
-
-svg > .rooms.highlight {
-  fill: rgba(181, 185, 53, 0.6);
 }
 
 svg > #wc,
@@ -66,17 +62,23 @@ svg > #wc-ffa {
   fill: rgb(38, 189, 207);
 }
 
-svg > #wc.highlight,
-svg > #wc-ffa.highlight {
-  fill: rgba(38, 189, 207, 0.6);
-}
-
 svg > #lounge {
-  fill: rgb(177, 28, 84);
+  fill: rgb(26, 115, 186);
 }
 
-svg > #lounge.highlight {
-  fill: rgba(177, 28, 84, 0.6);
+svg > .rooms.active,
+svg > *.active,
+svg > #wc.active,
+svg > #wc-ffa.active,
+svg > #lounge.active {
+  fill: rgb(247, 143, 49);
+  stroke: rgb(177, 28, 84) !important;
+  stroke-width: 6 !important;
+}
+
+svg > *:hover,
+svg > *.highlight {
+  fill: rgb(255, 244, 80) !important;
 }
 
 h2 {
@@ -89,15 +91,52 @@ ul li a {
   padding: 5px 10px;
 }
 
-ul li a.highlight {
-  background-color: rgb(255, 244, 80);
-  border-radius: 1px;
-}
-
 a, a:hover, a:visited, a:active {
   color: #333;
 }
 
-a:hover {
+ul li a.active {
+  background-color: rgb(247, 143, 49);
+  color: #fff;
+}
+
+ul li a.highlight,
+ul li a.active:hover {
   background-color: rgb(255, 244, 80);
+  border-radius: 1px;
+  color: #333;
+}
+
+article > div {
+  display: flex;
+}
+
+article section[role=definition] {
+  flex-grow: 2;
+  min-width: 30%;
+}
+article section[role=note] {
+  flex-grow: 3;
+  min-width: 70%;
+}
+
+article section {
+  padding: 0 0 1.5em;
+}
+
+article section h1,
+article section h2 {
+  padding: 0 0 1em;
+}
+
+article section p {
+  line-height: 1.5em;
+}
+
+article section ul {
+  list-style: disc;
+  padding-left: 18px;
+}
+article section li {
+  padding: 5px 0;
 }
